@@ -1,0 +1,25 @@
+﻿#q-features-table{
+    margin:0px;
+    padding:0px;
+}
+
+.canvasjs-chart-credit {
+   display:none !important;
+}
+
+.q-graph {
+    float: left;
+    width: 80%;
+    height: 200px;
+}
+
+.q-info {
+    float: left;
+    width: 20%;
+    height: 200px;
+}
+
+#q-pagination-section{
+    float: left;
+    padding-left: 0px !important;
+}
