@@ -52,3 +52,54 @@ C:\Users\Mada\Desktop\stuff\ASPNET CanvasJS Chart Samples\ASPNET MVC Samples\bin
 C:\Users\Mada\Desktop\stuff\ASPNET CanvasJS Chart Samples\ASPNET MVC Samples\bin\FileHelpers.xml
 C:\Users\Mada\Desktop\stuff\ASPNET CanvasJS Chart Samples\ASPNET MVC Samples\bin\FileHelpers.ExcelNPOIStorage.xml
 C:\Users\Mada\Desktop\stuff\ASPNET CanvasJS Chart Samples\ASPNET MVC Samples\bin\FileHelpers.ExcelStorage.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\obj\Debug\Secom.Web.csprojResolveAssemblyReference.cache
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\obj\Debug\ASPNET MVC Samples.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\obj\Debug\ASPNET MVC Samples.pdb
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\csc.exe
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\vbc.exe
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\VBCSCompiler.exe
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\ASPNET MVC Samples.dll.config
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\ASPNET MVC Samples.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\ASPNET MVC Samples.pdb
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Antlr3.Runtime.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\EntityFramework.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\EntityFramework.SqlServer.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.ExcelNPOIStorage.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.ExcelStorage.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Newtonsoft.Json.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Helpers.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Mvc.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Optimization.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Razor.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.Razor.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\WebGrease.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\stdole.dll
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Antlr3.Runtime.pdb
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\EntityFramework.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\EntityFramework.SqlServer.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.ExcelNPOIStorage.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\FileHelpers.ExcelStorage.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\Newtonsoft.Json.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Optimization.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Razor.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Webpages.Razor.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Helpers.xml
+C:\Users\Mada\Desktop\licenta\project\licenta\ASPNET MVC Samples\bin\System.Web.Mvc.xml

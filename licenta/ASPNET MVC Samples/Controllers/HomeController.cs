@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using SecomData;
 using ASPNET_MVC_Samples.ViewModels;
-using Secom.Data;
 
 namespace ASPNET_MVC_Samples.Controllers
 {
