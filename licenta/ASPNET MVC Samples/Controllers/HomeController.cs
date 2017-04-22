@@ -13,7 +13,7 @@ namespace ASPNET_MVC_Samples.Controllers
     public class HomeController : Controller
     {
         static List<FeatureViewModel> Features = DataCreator.AllFeatures();
-        static List<List<DataPoint>> Points = DataCreator.AllPoints();
+        static List<PointExtensionViewModel> Points = DataCreator.AllPoints();
         public ActionResult Index()
         {
             DataCreator.ReadFile();
@@ -45,19 +45,21 @@ namespace ASPNET_MVC_Samples.Controllers
             return View("FeaturesStDev", lHomePageVm);
         }
 
+
+
         private void SetViewBags(int pageNr)
         {
-            List<List<DataPoint>> points = Points.Skip((pageNr - 1) * 5).Take(5).ToList();
+            List<PointExtensionViewModel> points = Points.Skip((pageNr - 1) * 5).Take(5).ToList();
             if (points.Count > 0)
-            ViewBag.DataPoints1 = JsonConvert.SerializeObject(points[0]);
+            ViewBag.DataPoints1 = JsonConvert.SerializeObject(points[0].Points);
             if (points.Count > 1)
-            ViewBag.DataPoints2 = JsonConvert.SerializeObject(points[1]);
+            ViewBag.DataPoints2 = JsonConvert.SerializeObject(points[1].Points);
             if (points.Count > 2)
-            ViewBag.DataPoints3 = JsonConvert.SerializeObject(points[2]);
+            ViewBag.DataPoints3 = JsonConvert.SerializeObject(points[2].Points);
             if (points.Count > 3)
-            ViewBag.DataPoints4 = JsonConvert.SerializeObject(points[3]);
+            ViewBag.DataPoints4 = JsonConvert.SerializeObject(points[3].Points);
             if (points.Count > 4)
-            ViewBag.DataPoints5 = JsonConvert.SerializeObject(points[4]);
+            ViewBag.DataPoints5 = JsonConvert.SerializeObject(points[4].Points);
         }
 
 

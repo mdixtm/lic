@@ -1,4 +1,5 @@
 ﻿using ASPNET_MVC_Samples.Models;
+using ASPNET_MVC_Samples.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -110,24 +111,25 @@ namespace ASPNET_MVC_Samples.Controllers
             return lFeatures;
         }
 
-        public static List<List<DataPoint>> AllPoints()
+        public static List<PointExtensionViewModel> AllPoints()
         {
-            List<List<DataPoint>> lPoints = new List<List<DataPoint>>();
-            List<FeatureViewModel> lFeatures = new List<FeatureViewModel>();
+            List<PointExtensionViewModel> lPointExtension = new List<PointExtensionViewModel>();
+            List<DataPoint> lPoints = new List<DataPoint>();
             List<int> lMissing = MissingValuesOnColumns();
             for (int i = 0; i < MAXCOLUMNS; i++)
             {
-                lPoints.Add(AssignPoints(MAXROWS - lMissing[i], lMissing[i]));
+                lPointExtension.Add(AssignPoints(MAXROWS - lMissing[i], lMissing[i]));
             }
-            return lPoints;
+            return lPointExtension;
         }
 
-        private static List<DataPoint> AssignPoints(int x, int y)
+        private static PointExtensionViewModel AssignPoints(int x, int y)
         {
-            List<DataPoint> lPoints = new List<DataPoint>();
-            lPoints.Add(new DataPoint(x, "Existing Values", "Existing Values"));
-            lPoints.Add(new DataPoint(y, "Missing Values", "Missing Values"));
-            return lPoints;
+            PointExtensionViewModel lPointExtVM = new PointExtensionViewModel();
+            lPointExtVM.Points = new List<DataPoint>();
+            lPointExtVM.Points.Add(new DataPoint(x, "Existing Values", "Existing Values"));
+            lPointExtVM.Points.Add(new DataPoint(y, "Missing Values", "Missing Values"));
+            return lPointExtVM;
         }
 
         private static FeatureViewModel SetFeature(int nr, double stDev, double min, double max, double averange)
