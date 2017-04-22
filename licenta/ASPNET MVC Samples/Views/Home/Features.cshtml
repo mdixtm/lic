@@ -1,7 +1,7 @@
 ﻿@model ASPNET_MVC_Samples.ViewModels.HomePageViewModel
 
 @{
-    ViewBag.Title = "Seminconductors Features";
+    ViewBag.Title = "Seminconductors Features" + " Count: 598";
 }
 
 <head>
@@ -31,11 +31,15 @@
                 <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
             }
             <li class="page-item active"><a class="page-link"  href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
-            <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
-            <li class="page-item"><a class="page-link"  href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
-            @if ((Model.PagViewModel.HasNext == true) &&  
-                (Model.PagViewModel.CurrentPage!=Model.PagViewModel.Last))
+
+            @if ((Model.PagViewModel.HasNext == true) &&
+                (Model.PagViewModel.CurrentPage != Model.PagViewModel.Last))
             {
+            <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
+                if (Model.PagViewModel.HasNext2 == true)
+                {
+            <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
+                }
             <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
             <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
             }            
@@ -48,21 +52,51 @@
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
         </ul>
     </div>
 </div>
 <div class="q-graph" id="chartContainer1"></div>
 <div class="q-info">
+    <b>Standard Dev: </b><br /> @Model.Features[0].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model.Features[0].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model.Features[0].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model.Features[0].FeatureInfo.Mean.ToString("0.00") <br />
 </div>
 <div class="q-graph" id="chartContainer2"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model.Features[1].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model.Features[1].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model.Features[1].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model.Features[1].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer3"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model.Features[2].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model.Features[2].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model.Features[2].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model.Features[2].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer4"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+   @if (Model.Features.Count > 3)
+   {
+    <b>Standard Dev: </b><br /> @Model.Features[3].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model.Features[3].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model.Features[3].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model.Features[3].FeatureInfo.Mean.ToString("0.00") <br />
+   }
+</div>
 <div class="q-graph" id="chartContainer5"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    @if (Model.Features.Count > 4)
+    {
+    <b>Standard Dev: </b><br /> @Model.Features[4].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model.Features[4].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model.Features[4].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model.Features[4].FeatureInfo.Mean.ToString("0.00") <br />
+    }
+</div>
 <div class="row">
     <div class="col-sm-5">
         Select a page (5 items/page):
@@ -87,11 +121,15 @@
                 <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
             }
             <li class="page-item active"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
-            <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
-            <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
+
             @if ((Model.PagViewModel.HasNext == true) &&
                 (Model.PagViewModel.CurrentPage != Model.PagViewModel.Last))
             {
+                <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
+                if (Model.PagViewModel.HasNext2 == true)
+                {
+                <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
+                }
                 <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
                 <li class="page-item"><a class="page-link" href="@Url.Action("ChangePage", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
             }  
@@ -104,7 +142,7 @@
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
         </ul>
     </div>
 </div>
@@ -112,7 +150,7 @@
     $(function () {
         var chart = new CanvasJS.Chart("chartContainer1", {
             title: {
-                text:"Feature " +  @Model.Features[0].FeatureNr
+                text: "Feature " +  @Model.Features[0].FeatureNr
             },
             animationEnabled: true,
             legend: {
@@ -132,13 +170,13 @@
                     showInLegend: true,
                     toolTipContent: "{label} {y}",
                     dataPoints:  @Html.Raw(ViewBag.DataPoints1),
-            }
+                }
             ]
         });
         chart.render();
         var chart2 = new CanvasJS.Chart("chartContainer2", {
             title: {
-                 text:"Feature " +  @Model.Features[1].FeatureNr
+                text: "Feature " +  @Model.Features[1].FeatureNr
             },
             animationEnabled: true,
             legend: {
@@ -149,25 +187,25 @@
             },
             theme: "theme2",
             data: [
-            {
-                type: "pie",
-                indexLabelFontFamily: "Garamond",
-                indexLabelFontSize: 20,
-                indexLabel: "{label} {y}",
-                startAngle: -20,
-                showInLegend: true,
-                toolTipContent: "{legendText} {y}",
-                dataPoints: @Html.Raw(ViewBag.DataPoints2),
+                {
+                    type: "pie",
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontSize: 20,
+                    indexLabel: "{label} {y}",
+                    startAngle: -20,
+                    showInLegend: true,
+                    toolTipContent: "{legendText} {y}",
+                    dataPoints: @Html.Raw(ViewBag.DataPoints2),
 
-                //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
-                //dataPoints:
-            }
+                    //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
+                    //dataPoints:
+                }
             ]
         });
         chart2.render();
-         var chart3 = new CanvasJS.Chart("chartContainer3", {
+        var chart3 = new CanvasJS.Chart("chartContainer3", {
             title: {
-                text:"Feature " +  @Model.Features[2].FeatureNr
+                text: "Feature " +  @Model.Features[2].FeatureNr
             },
             animationEnabled: true,
             legend: {
@@ -178,23 +216,25 @@
             },
             theme: "theme2",
             data: [
-            {
-                type: "pie",
-                indexLabelFontFamily: "Garamond",
-                indexLabelFontSize: 20,
-                indexLabel: "{label} {y}",
-                startAngle: -20,
-                showInLegend: true,
-                toolTipContent: "{legendText} {y}",
-                dataPoints: @Html.Raw(ViewBag.DataPoints3),
+                {
+                    type: "pie",
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontSize: 20,
+                    indexLabel: "{label} {y}",
+                    startAngle: -20,
+                    showInLegend: true,
+                    toolTipContent: "{legendText} {y}",
+                    dataPoints: @Html.Raw(ViewBag.DataPoints3),
 
-                //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
-                //dataPoints:
-            }
+                    //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
+                    //dataPoints:
+                }
             ]
         });
-         chart3.render();
-         var chart4 = new CanvasJS.Chart("chartContainer4", {
+        chart3.render();
+        @if (Model.Features.Count >3) { 
+        <text>
+        var chart4 = new CanvasJS.Chart("chartContainer4", {
             title: {
                 text: "Feature " +  @Model.Features[3].FeatureNr
             },
@@ -207,25 +247,25 @@
             },
             theme: "theme2",
             data: [
-            {
-                type: "pie",
-                indexLabelFontFamily: "Garamond",
-                indexLabelFontSize: 20,
-                indexLabel: "{label} {y}",
-                startAngle: -20,
-                showInLegend: true,
-                toolTipContent: "{legendText} {y}",
-                dataPoints: @Html.Raw(ViewBag.DataPoints4),
+                {
+                    type: "pie",
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontSize: 20,
+                    indexLabel: "{label} {y}",
+                    startAngle: -20,
+                    showInLegend: true,
+                    toolTipContent: "{legendText} {y}",
+                    dataPoints: @Html.Raw(ViewBag.DataPoints4),
 
-                //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
-                //dataPoints:
-            }
+                    //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
+                    //dataPoints:
+                }
             ]
         });
-         chart4.render();
-         var chart5 = new CanvasJS.Chart("chartContainer5", {
+        chart4.render();
+        var chart5 = new CanvasJS.Chart("chartContainer5", {
             title: {
-                 text:"Feature " +  @Model.Features[4].FeatureNr
+                text: "Feature " +  @Model.Features[4].FeatureNr
             },
             animationEnabled: true,
             legend: {
@@ -236,21 +276,24 @@
             },
             theme: "theme2",
             data: [
-            {
-                type: "pie",
-                indexLabelFontFamily: "Garamond",
-                indexLabelFontSize: 20,
-                indexLabel: "{label} {y}",
-                startAngle: -20,
-                showInLegend: true,
-                toolTipContent: "{legendText} {y}",
-                dataPoints: @Html.Raw(ViewBag.DataPoints5),
+                {
+                    type: "pie",
+                    indexLabelFontFamily: "Garamond",
+                    indexLabelFontSize: 20,
+                    indexLabel: "{label} {y}",
+                    startAngle: -20,
+                    showInLegend: true,
+                    toolTipContent: "{legendText} {y}",
+                    dataPoints: @Html.Raw(ViewBag.DataPoints5),
 
-                //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
-                //dataPoints:
-            }
+                    //You can add dynamic data from the controller as shown below. Check the controller and uncomment the line which generates dataPoints.
+                    //dataPoints:
+                }
             ]
         });
         chart5.render();
+        </text>
+    }
+            
     });
 </script>

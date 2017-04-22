@@ -1,14 +1,14 @@
 ﻿@model List<ASPNET_MVC_Samples.Models.FeatureViewModel>
 
 @{
-    ViewBag.Title = "Seminconductors Features";
+    ViewBag.Title = "Seminconductors Features" + " Count: 598";
 }
 
 <head>
     <link href="~/Content/graphs.css" rel="stylesheet" type="text/css" />
 </head>
 <div class="row">
-    <div class="col-sm-5">
+    <div class="col-sm-7">
     Select a page (5 items/page):
     </div>
     <div class="col-sm-2">
@@ -26,6 +26,7 @@
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=2">2</a></li>
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=3">3</a></li>
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=4">Next</a></li>
+                <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=120">Last</a></li>
             </ul>
     </div>
     <div class="col-sm-2">
@@ -35,21 +36,45 @@
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
         </ul>
     </div>
 </div>
 <div class="q-graph" id="chartContainer1"></div>
 <div class="q-info"> 
-    @Model[0].FeatureNr </div>
+   <b>Standard Dev: </b><br /> @Model[0].FeatureInfo.StDev.ToString("0.00") <br />
+   <b>Min:</b> <br /> @Model[0].FeatureInfo.Minimum <br />
+   <b>Max:</b> <br />@Model[0].FeatureInfo.Maximum <br />
+   <b>Mean:</b> <br /> @Model[0].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer2"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model[1].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model[1].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model[1].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model[1].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer3"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model[2].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model[2].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model[2].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model[2].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer4"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model[3].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model[3].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model[3].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model[3].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="q-graph" id="chartContainer5"></div>
-<div class="q-info"> ghgdf</div>
+<div class="q-info">
+    <b>Standard Dev: </b><br /> @Model[4].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Min:</b> <br /> @Model[4].FeatureInfo.Minimum <br />
+    <b>Max:</b> <br />@Model[4].FeatureInfo.Maximum <br />
+    <b>Mean:</b> <br /> @Model[4].FeatureInfo.Mean.ToString("0.00") <br />
+</div>
 <div class="row">
     <div class="col-sm-5">
         Select a page (5 items/page):
@@ -69,6 +94,7 @@
             <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=2">2</a></li>
             <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=3">3</a></li>
             <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=4">Next</a></li>
+            <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=120">Last</a></li>
         </ul>
     </div>
     <div class="col-sm-2">
@@ -78,7 +104,7 @@
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
         </ul>
     </div>
 </div>

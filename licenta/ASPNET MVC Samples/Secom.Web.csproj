@@ -263,6 +263,7 @@
     <Content Include="Views\HowTo\DataFromDataBase.cshtml" />
     <Content Include="Views\HowTo\Error.cshtml" />
     <Content Include="Views\Home\Features.cshtml" />
+    <Content Include="Views\Home\FeaturesStDev.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
