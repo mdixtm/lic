@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Preprocessing results ";
+}
+<head>
+    <link href="~/Content/graphs.css" rel="stylesheet" type="text/css" />
+</head>
+<div id="chartContainer"></div>
+
+<script type="text/javascript">
+    $(function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+            title: {
+                text: "Data Cleaning Phase - From 590 to 437 features"
+            },
+            animationEnabled: true,
+            legend: {
+                fontSize: 20,
+                fontFamily: "Helvetica"
+            },
+            theme: "theme2",
+            data: [
+            {
+                type: "doughnut",
+                indexLabelFontFamily: "Garamond",
+                indexLabelFontSize: 20,
+                indexLabel: "{label} {y}",
+                startAngle: -20,
+                showInLegend: true,
+                toolTipContent: "{legendText} {y}",
+                dataPoints: [
+                    { y: 437, legendText: "Remaining Data", label: "Remaining Data" },
+                    { y: 112, legendText: "Constant Values", label: "Constant Values" },
+                    { y: 41, legendText: "More than 50% missing", label: "More than 50% missing"},
+                ],
+            }
+            ]
+        });
+        chart.render();
+    });
+</script>

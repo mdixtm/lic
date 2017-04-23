@@ -11,25 +11,25 @@ namespace ASPNET_MVC_Samples.Controllers
 {
     public class DataCreator
     {
-        public const int MAXCOLUMNS = 598;
-        public const int FEATURES = 599;
+        public const int MAXCOLUMNS = 589;
+        public const int FEATURES = 590;
         public const int MAXROWS = 1567;
         public const int ARRAYSIZE = 1700;
-        public const string FILEPATH = @"C:\Users\Mada\Desktop\secom.csv";
+        public const string FILEPATH = @"C:\Users\Mada\Desktop\original_secom.csv";
 
    
         public static List<int> MissingValuesOnColumns()
         {
             List<int> lMissingNr = new List<int>();
             string[][] lFeatures = ReadFile();
-            for (int j = 1; j <= MAXCOLUMNS; j++)
+            for (int j = 0; j < MAXCOLUMNS; j++)
             {
                 int lAux = 0;
                 for (int i = 1; i < lFeatures.Length; i++)
                 {
                     if (lFeatures[i] != null)
                     {
-                        if (lFeatures[i][j] == "")
+                        if (lFeatures[i][j] == "NaN")
                         {
                             lAux = lAux + 1;
                         }
@@ -40,31 +40,47 @@ namespace ASPNET_MVC_Samples.Controllers
             return lMissingNr;
         }
 
-        private static double GetStandardDeviation(List<double> doubleList)
+        private static double CalculateStdDev(IEnumerable<double> values)
         {
-            double average = doubleList.Average();
-            double sumOfDerivation = 0;
-            foreach (double value in doubleList)
+            double ret = 0;
+            if (values.Count() > 0)
             {
-                sumOfDerivation += (value) * (value);
+                //Compute the Average      
+                double avg = values.Average();
+                //Perform the Sum of (value-avg)_2_2      
+                double sum = values.Sum(d => Math.Pow(d - avg, 2));
+                //Put it all together      
+                ret = Math.Sqrt((sum) / (values.Count() - 1));
             }
-            double sumOfDerivationAverage = sumOfDerivation / (doubleList.Count - 1);
-            return Math.Sqrt(sumOfDerivationAverage - (average * average));
+            return ret;
         }
 
-        public static double StandardDeviation(List<double> valueList)
+        public static double StandardDeviation(double[] data)
         {
-            double M = 0.0;
-            double S = 0.0;
-            int k = 1;
-            foreach (double value in valueList)
+            double stdDev = 0;
+            double sumAll = 0;
+            double sumAllQ = 0;
+
+            //Sum of x and sum of x²
+            for (int i = 0; i < data.Length; i++)
             {
-                double tmpM = M;
-                M += (value - tmpM) / k;
-                S += (value - tmpM) * (value - M);
-                k++;
+                double x = data[i];
+                sumAll += x;
+                sumAllQ += x * x;
             }
-            return Math.Sqrt(S / (k - 2));
+
+            //Mean (not used here)
+            //double mean = 0;
+            //mean = sumAll / (double)data.Length;
+
+            //Standard deviation
+            stdDev = System.Math.Sqrt(
+                (sumAllQ -
+                (sumAll * sumAll) / data.Length) *
+                (1.0d / (data.Length - 1))
+                );
+
+            return stdDev;
         }
 
         public static void StDevOnColumns(ref double[]lStandardDevs, ref double[] lMins,
@@ -76,18 +92,18 @@ namespace ASPNET_MVC_Samples.Controllers
             lAveranges = new double[FEATURES];
             double[][] lFeatures = ReadFileInDoubles();
             string[][] lFeaturesStrings = ReadFile();
-            for (int j = 1; j <= MAXCOLUMNS; j++)
+            for (int j = 0; j <= MAXCOLUMNS; j++)
             {
                 List<double> lElemByColumn = new List<double>();
                 for (int i = 1; i < lFeatures.Length; i++)
                 {
                     if (lFeatures[i] != null)
                     {
-                        if (lFeaturesStrings[i][j] != "")
+                        if (lFeaturesStrings[i][j] != "NaN")
                         lElemByColumn.Add(lFeatures[i][j]);
                     }
                 }
-                lStandardDevs[j] = StandardDeviation(lElemByColumn);
+                lStandardDevs[j] = StandardDeviation(lElemByColumn.ToArray());
                 lMins[j] = lElemByColumn.Min();
                 lMaxs[j] = lElemByColumn.Max();
                 lAveranges[j] = lElemByColumn.Average();
@@ -104,7 +120,7 @@ namespace ASPNET_MVC_Samples.Controllers
             double[] lAveranges = new double[FEATURES];
             StDevOnColumns(ref stDevOnColumn, ref lMins, ref lMaxs, ref lAveranges);
 
-            for (int i=0; i<MAXCOLUMNS; i++)
+            for (int i=0; i< MAXCOLUMNS; i++)
             {
                 lFeatures.Add(SetFeature(i+1,stDevOnColumn[i+1],lMins[i+1],lMaxs[i+1],lAveranges[i+1]));
             }
@@ -178,7 +194,7 @@ namespace ASPNET_MVC_Samples.Controllers
                     var values = line.Split(',');
                     i = i + 1;
                     featureList[i] = new double[FEATURES];
-                    for (int j=0; j<values.Length; j++)
+                    for (int j=0; j<=MAXCOLUMNS; j++)
                     {
                         double parsed = 0;
                         bool IsDoubleValue = Double.TryParse(values[j], out parsed);

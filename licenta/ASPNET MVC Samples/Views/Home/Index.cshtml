@@ -1,7 +1,7 @@
 ﻿@model List<ASPNET_MVC_Samples.Models.FeatureViewModel>
 
 @{
-    ViewBag.Title = "Seminconductors Features" + " Count: 598";
+    ViewBag.Title = "Seminconductors Features";
 }
 
 <head>
@@ -26,7 +26,7 @@
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=2">2</a></li>
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=3">3</a></li>
                 <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=4">Next</a></li>
-                <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=120">Last</a></li>
+                <li class="page-item"><a class="page-link" href="/Home/ChangePage?id=118">Last</a></li>
             </ul>
     </div>
     <div class="col-sm-2">
@@ -37,6 +37,7 @@
     <div class="col-sm-2">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">More than 50% missing</a></li>
         </ul>
     </div>
 </div>
@@ -105,6 +106,7 @@
     <div class="col-sm-2">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">More than 50% missing</a></li>
         </ul>
     </div>
 </div>

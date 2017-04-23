@@ -42,19 +42,24 @@ namespace ASPNET_MVC_Samples.ViewModels
 
             if (this.Last != this.CurrentPage && this.CurrentPage <this.Last)
             {
+                if (this.CurrentPage + 1 <= this.Last)
                 this.NextPage1 = currentPage + 1;
                 this.HasNext = true;
                 if (this.Last != this.NextPage1)
                 {
-                    this.NextPage2 = currentPage + 2;
-                    this.HasNext2 = true;
-                    if (this.Last != this.NextPage2)
+                    if (this.CurrentPage + 2 < this.Last)
                     {
-                        this.Next = currentPage + 3;
+                        this.NextPage2 = currentPage + 2;
+                        this.HasNext2 = true;
+                        if (this.Last != this.NextPage2)
+                        {
+                            this.Next = currentPage + 3;
+                        }
                     }
                 }
                 
             }
+
         }
     }
 }

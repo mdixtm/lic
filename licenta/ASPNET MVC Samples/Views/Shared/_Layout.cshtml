@@ -94,6 +94,36 @@
                 </a>
             </li>
             <li role="separator" class="divider"></li>
+            <li>
+                <a href="/Preprocessing">
+                    <i class="fa fa-area-chart" aria-hidden="true"></i>
+                    <span>PREPROCESSING</span>
+                </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li data-toggle="collapse" href="#features" aria-expanded="false" aria-controls="features">
+                <a href="#">
+                    <i class="fa fa-flask" aria-hidden="true"></i>
+                    <span>FEATURES SELECTION</span>
+                </a>
+            </li>
+
+            <li>
+                <ul id="features" class="sub-menu collapse @if(Request.Url.AbsoluteUri.ToString().Contains("features/")) { @Html.Raw("in") }">
+                    <li><a href="/features/zoomingpanning/">Zooming &amp; Panning</a></li>
+                    <li><a href="/features/exportchart/">Export Chart as Image</a></li>
+                    <li><a href="/features/eventhandling/">Events</a></li>
+                    <li><a href="/features/logaxis/">Logarithmic Axis</a></li>
+                    <li><a href="/features/reverseaxis/">Reverse Axis</a></li>
+                    <li><a href="/features/datetime/">Date Time Axis</a></li>
+                    <li><a href="/features/striplines/">StripLines</a></li>
+                    <li><a href="/features/multipleyaxis/">Multiple Y Axis</a></li>
+                    <li><a href="/features/multiserieschart/">Multiseries Charts</a></li>
+                </ul>
+            </li>
+            <!--  /features -->
+
+            <li role="separator" class="divider"></li>
 
             <!-- chart types -->
             <li data-toggle="collapse" href="#charttypes" aria-expanded="true" aria-controls="chart-types">
@@ -138,7 +168,7 @@
             <!--  features -->
             <li data-toggle="collapse" href="#features" aria-expanded="false" aria-controls="features">
                 <a href="#">
-                    <i class="fa fa-flask" aria-hidden="true"></i>
+                    <i class="fa fa-wrench" aria-hidden="true"></i>
                     <span>FEATURES</span>
                 </a>
             </li>

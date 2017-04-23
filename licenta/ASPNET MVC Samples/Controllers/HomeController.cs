@@ -17,8 +17,8 @@ namespace ASPNET_MVC_Samples.Controllers
         public ActionResult Index()
         {
             DataCreator.ReadFile();
-            SetViewBags(1);
             List<FeatureViewModel> lFeatures = Features.Take(5).ToList();
+            SetViewBags(lFeatures);  
             return View(lFeatures);
         }
 
@@ -28,7 +28,7 @@ namespace ASPNET_MVC_Samples.Controllers
             int lNrSkippedElements = (id - 1) * 5;
             lHomePageVm.Features = Features.Skip(lNrSkippedElements).Take(5).ToList();
             lHomePageVm.PagViewModel = new PaginationViewModel(id,Features.Count);
-            SetViewBags(id);
+            SetViewBags(lHomePageVm.Features);
             return View("Features", lHomePageVm);
         }
 
@@ -41,25 +41,37 @@ namespace ASPNET_MVC_Samples.Controllers
             lStDevZeroFeatures = Features.Where(f => f.FeatureInfo.StDev == 0).ToList();
             lHomePageVm.Features = lStDevZeroFeatures.Skip(lNrSkippedElements).Take(5).ToList();
             lHomePageVm.PagViewModel = new PaginationViewModel(id, lStDevZeroFeatures.Count);
-            SetViewBags(1);
+            SetViewBags(lHomePageVm.Features);
             return View("FeaturesStDev", lHomePageVm);
         }
 
-
-
-        private void SetViewBags(int pageNr)
+        public ActionResult MissingValues(int id)
         {
-            List<PointExtensionViewModel> points = Points.Skip((pageNr - 1) * 5).Take(5).ToList();
-            if (points.Count > 0)
-            ViewBag.DataPoints1 = JsonConvert.SerializeObject(points[0].Points);
-            if (points.Count > 1)
-            ViewBag.DataPoints2 = JsonConvert.SerializeObject(points[1].Points);
-            if (points.Count > 2)
-            ViewBag.DataPoints3 = JsonConvert.SerializeObject(points[2].Points);
-            if (points.Count > 3)
-            ViewBag.DataPoints4 = JsonConvert.SerializeObject(points[3].Points);
-            if (points.Count > 4)
-            ViewBag.DataPoints5 = JsonConvert.SerializeObject(points[4].Points);
+            DataCreator.ReadFile();
+            HomePageViewModel lHomePageVm = new HomePageViewModel();
+            int lNrSkippedElements = (id - 1) * 5;
+            List<FeatureViewModel> lMissingValues = new List<FeatureViewModel>();
+            List<int> lMissing = DataCreator.MissingValuesOnColumns();
+            lMissingValues = Features.Where(f => lMissing[f.FeatureNr - 1] >= (1567 *0.5)).ToList();
+            lHomePageVm.Features = lMissingValues.Skip(lNrSkippedElements).Take(5).ToList();
+            lHomePageVm.PagViewModel = new PaginationViewModel(id, lMissingValues.Count);
+            SetViewBags(lHomePageVm.Features);
+            return View(lHomePageVm);
+        }
+
+
+        private void SetViewBags(List<FeatureViewModel> features)
+        {
+            if (features.Count > 0)
+            ViewBag.DataPoints1 = JsonConvert.SerializeObject(Points[features[0].FeatureNr-1].Points);
+            if (features.Count > 1)
+                ViewBag.DataPoints2 = JsonConvert.SerializeObject(Points[features[1].FeatureNr-1].Points);
+            if (features.Count > 2)
+                ViewBag.DataPoints3 = JsonConvert.SerializeObject(Points[features[2].FeatureNr-1].Points);
+            if (features.Count > 3)
+                ViewBag.DataPoints4 = JsonConvert.SerializeObject(Points[features[3].FeatureNr-1].Points);
+            if (features.Count > 4)
+                ViewBag.DataPoints5 = JsonConvert.SerializeObject(Points[features[4].FeatureNr-1].Points);
         }
 
 

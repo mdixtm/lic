@@ -1,7 +1,7 @@
 ﻿@model ASPNET_MVC_Samples.ViewModels.HomePageViewModel
 
 @{
-    ViewBag.Title = "Seminconductors Features" + " Count: 598";
+    ViewBag.Title = "Seminconductors Features";
 }
 
 <head>
@@ -53,35 +53,45 @@
     <div class="col-sm-2">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
         </ul>
     </div>
 </div>
 <div class="q-graph" id="chartContainer1"></div>
 <div class="q-info">
-    <b>Standard Dev: </b><br /> @Model.Features[0].FeatureInfo.StDev.ToString("0.00") <br />
+@if (Model.Features.Count > 1)
+{
+    <b>Standard Dev: </b><br /> @Model.Features[0].FeatureInfo.StDev.ToString("0.000") <br />
     <b>Min:</b> <br /> @Model.Features[0].FeatureInfo.Minimum <br />
     <b>Max:</b> <br />@Model.Features[0].FeatureInfo.Maximum <br />
     <b>Mean:</b> <br /> @Model.Features[0].FeatureInfo.Mean.ToString("0.00") <br />
+}
 </div>
 <div class="q-graph" id="chartContainer2"></div>
 <div class="q-info">
-    <b>Standard Dev: </b><br /> @Model.Features[1].FeatureInfo.StDev.ToString("0.00") <br />
+@if (Model.Features.Count > 2)
+{
+    <b>Standard Dev: </b><br /> @Model.Features[1].FeatureInfo.StDev.ToString("0.000") <br />
     <b>Min:</b> <br /> @Model.Features[1].FeatureInfo.Minimum <br />
     <b>Max:</b> <br />@Model.Features[1].FeatureInfo.Maximum <br />
     <b>Mean:</b> <br /> @Model.Features[1].FeatureInfo.Mean.ToString("0.00") <br />
+}
 </div>
 <div class="q-graph" id="chartContainer3"></div>
 <div class="q-info">
-    <b>Standard Dev: </b><br /> @Model.Features[2].FeatureInfo.StDev.ToString("0.00") <br />
+@if (Model.Features.Count > 2)
+{
+    <b>Standard Dev: </b><br /> @Model.Features[2].FeatureInfo.StDev.ToString("0.000") <br />
     <b>Min:</b> <br /> @Model.Features[2].FeatureInfo.Minimum <br />
     <b>Max:</b> <br />@Model.Features[2].FeatureInfo.Maximum <br />
     <b>Mean:</b> <br /> @Model.Features[2].FeatureInfo.Mean.ToString("0.00") <br />
+}
 </div>
 <div class="q-graph" id="chartContainer4"></div>
 <div class="q-info">
    @if (Model.Features.Count > 3)
    {
-    <b>Standard Dev: </b><br /> @Model.Features[3].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Standard Dev: </b><br /> @Model.Features[3].FeatureInfo.StDev.ToString("0.000") <br />
     <b>Min:</b> <br /> @Model.Features[3].FeatureInfo.Minimum <br />
     <b>Max:</b> <br />@Model.Features[3].FeatureInfo.Maximum <br />
     <b>Mean:</b> <br /> @Model.Features[3].FeatureInfo.Mean.ToString("0.00") <br />
@@ -91,7 +101,7 @@
 <div class="q-info">
     @if (Model.Features.Count > 4)
     {
-    <b>Standard Dev: </b><br /> @Model.Features[4].FeatureInfo.StDev.ToString("0.00") <br />
+    <b>Standard Dev: </b><br /> @Model.Features[4].FeatureInfo.StDev.ToString("0.000") <br />
     <b>Min:</b> <br /> @Model.Features[4].FeatureInfo.Minimum <br />
     <b>Max:</b> <br />@Model.Features[4].FeatureInfo.Maximum <br />
     <b>Mean:</b> <br /> @Model.Features[4].FeatureInfo.Mean.ToString("0.00") <br />
@@ -143,6 +153,7 @@
     <div class="col-sm-2">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
         </ul>
     </div>
 </div>
@@ -174,7 +185,10 @@
             ]
         });
         chart.render();
-        var chart2 = new CanvasJS.Chart("chartContainer2", {
+        @if (Model.Features.Count > 1)
+        {
+            <text>
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
             title: {
                 text: "Feature " +  @Model.Features[1].FeatureNr
             },
@@ -188,7 +202,7 @@
             theme: "theme2",
             data: [
                 {
-                    type: "pie",
+                type: "pie",
                     indexLabelFontFamily: "Garamond",
                     indexLabelFontSize: 20,
                     indexLabel: "{label} {y}",
@@ -202,8 +216,13 @@
                 }
             ]
         });
-        chart2.render();
-        var chart3 = new CanvasJS.Chart("chartContainer3", {
+            chart2.render();
+        </text>
+            }
+        @if (Model.Features.Count > 2)
+        {
+            <text>
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
             title: {
                 text: "Feature " +  @Model.Features[2].FeatureNr
             },
@@ -217,7 +236,7 @@
             theme: "theme2",
             data: [
                 {
-                    type: "pie",
+                type: "pie",
                     indexLabelFontFamily: "Garamond",
                     indexLabelFontSize: 20,
                     indexLabel: "{label} {y}",
@@ -231,8 +250,11 @@
                 }
             ]
         });
-        chart3.render();
-        @if (Model.Features.Count >3) { 
+            chart3.render();
+        </text>
+        }
+        @if (Model.Features.Count > 3)
+        {
         <text>
         var chart4 = new CanvasJS.Chart("chartContainer4", {
             title: {
@@ -263,7 +285,12 @@
             ]
         });
         chart4.render();
-        var chart5 = new CanvasJS.Chart("chartContainer5", {
+        </text>
+        }
+        @if (Model.Features.Count > 4 )
+            { 
+            <text>
+            var chart5 = new CanvasJS.Chart("chartContainer5", {
             title: {
                 text: "Feature " +  @Model.Features[4].FeatureNr
             },
@@ -277,7 +304,7 @@
             theme: "theme2",
             data: [
                 {
-                    type: "pie",
+                type: "pie",
                     indexLabelFontFamily: "Garamond",
                     indexLabelFontSize: 20,
                     indexLabel: "{label} {y}",

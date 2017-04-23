@@ -200,6 +200,7 @@
     <Compile Include="Controllers\ChartTypesController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\DataCreator.cs" />
+    <Compile Include="Controllers\PreprocessingController.cs" />
     <Compile Include="Models\DataService.cs" />
     <Compile Include="Controllers\FeaturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -265,6 +266,8 @@
     <Content Include="Views\HowTo\Error.cshtml" />
     <Content Include="Views\Home\Features.cshtml" />
     <Content Include="Views\Home\FeaturesStDev.cshtml" />
+    <Content Include="Views\Preprocessing\Index.cshtml" />
+    <Content Include="Views\Home\MissingValues.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

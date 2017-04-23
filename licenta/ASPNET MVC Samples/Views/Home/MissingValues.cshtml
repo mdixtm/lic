@@ -29,33 +29,33 @@
             }
             @if (Model.PagViewModel.CurrentPage != 1)
             {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
             }
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
-           
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
+
             @if ((Model.PagViewModel.HasNext == true) &&
                 (Model.PagViewModel.CurrentPage != Model.PagViewModel.Last))
             {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
                 if (Model.PagViewModel.NextPage2 != 0)
                 {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
+                    <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
                 }
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
-            
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
+
             }
         </ul>
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
         </ul>
     </div>
     <div class="col-sm-3">
         <ul class="pagination">
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
-            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home",new { id = 1 })">St dev = 0</a></li>
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
         </ul>
     </div>
 </div>
@@ -68,42 +68,42 @@
 </div>
 <div class="q-graph" id="chartContainer2"></div>
 <div class="q-info">
-@if (Model.Features.Count > 1)
-{
-    <b>Standard Dev: </b><br /> @Model.Features[1].FeatureInfo.StDev.ToString("0.00") <br />
-    <b>Min:</b> <br /> @Model.Features[1].FeatureInfo.Minimum <br />
-    <b>Max:</b> <br />@Model.Features[1].FeatureInfo.Maximum <br />
-    <b>Mean:</b> <br /> @Model.Features[1].FeatureInfo.Mean.ToString("0.00") <br />
-}
+    @if (Model.Features.Count > 1)
+    {
+        <b>Standard Dev: </b><br /> @Model.Features[1].FeatureInfo.StDev.ToString("0.00") <br />
+        <b>Min:</b> <br /> @Model.Features[1].FeatureInfo.Minimum <br />
+        <b>Max:</b> <br />@Model.Features[1].FeatureInfo.Maximum <br />
+        <b>Mean:</b> <br /> @Model.Features[1].FeatureInfo.Mean.ToString("0.00") <br />
+    }
 </div>
 <div class="q-graph" id="chartContainer3"></div>
 <div class="q-info">
-@if (Model.Features.Count > 2)
-{
-    <b>Standard Dev: </b><br /> @Model.Features[2].FeatureInfo.StDev.ToString("0.00") <br />
-    <b>Min:</b> <br /> @Model.Features[2].FeatureInfo.Minimum <br />
-    <b>Max:</b> <br />@Model.Features[2].FeatureInfo.Maximum <br />
-    <b>Mean:</b> <br /> @Model.Features[2].FeatureInfo.Mean.ToString("0.00") <br />
-}
+    @if (Model.Features.Count > 2)
+    {
+        <b>Standard Dev: </b><br /> @Model.Features[2].FeatureInfo.StDev.ToString("0.00") <br />
+        <b>Min:</b> <br /> @Model.Features[2].FeatureInfo.Minimum <br />
+        <b>Max:</b> <br />@Model.Features[2].FeatureInfo.Maximum <br />
+        <b>Mean:</b> <br /> @Model.Features[2].FeatureInfo.Mean.ToString("0.00") <br />
+    }
 </div>
 <div class="q-graph" id="chartContainer4"></div>
 <div class="q-info">
     @if (Model.Features.Count > 3)
     {
-    <b>Standard Dev: </b><br /> @Model.Features[3].FeatureInfo.StDev.ToString("0.00") <br />
-    <b>Min:</b> <br /> @Model.Features[3].FeatureInfo.Minimum <br />
-    <b>Max:</b> <br />@Model.Features[3].FeatureInfo.Maximum <br />
-    <b>Mean:</b> <br /> @Model.Features[3].FeatureInfo.Mean.ToString("0.00") <br />
+        <b>Standard Dev: </b><br /> @Model.Features[3].FeatureInfo.StDev.ToString("0.00") <br />
+        <b>Min:</b> <br /> @Model.Features[3].FeatureInfo.Minimum <br />
+        <b>Max:</b> <br />@Model.Features[3].FeatureInfo.Maximum <br />
+        <b>Mean:</b> <br /> @Model.Features[3].FeatureInfo.Mean.ToString("0.00") <br />
     }
 </div>
 <div class="q-graph" id="chartContainer5"></div>
 <div class="q-info">
     @if (Model.Features.Count > 4)
     {
-    <b>Standard Dev: </b><br /> @Model.Features[4].FeatureInfo.StDev.ToString("0.00") <br />
-    <b>Min:</b> <br /> @Model.Features[4].FeatureInfo.Minimum <br />
-    <b>Max:</b> <br />@Model.Features[4].FeatureInfo.Maximum <br />
-    <b>Mean:</b> <br /> @Model.Features[4].FeatureInfo.Mean.ToString("0.00") <br />
+        <b>Standard Dev: </b><br /> @Model.Features[4].FeatureInfo.StDev.ToString("0.00") <br />
+        <b>Min:</b> <br /> @Model.Features[4].FeatureInfo.Minimum <br />
+        <b>Max:</b> <br />@Model.Features[4].FeatureInfo.Maximum <br />
+        <b>Mean:</b> <br /> @Model.Features[4].FeatureInfo.Mean.ToString("0.00") <br />
     }
 </div>
 <div class="row">
@@ -127,34 +127,35 @@
             }
             @if (Model.PagViewModel.CurrentPage != 1)
             {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Previous })"> Previous </a></li>
             }
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
-           
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
+
             @if ((Model.PagViewModel.HasNext == true) &&
                 (Model.PagViewModel.CurrentPage != Model.PagViewModel.Last))
             {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.NextPage1 })"> @Model.PagViewModel.NextPage1 </a></li>
                 if (Model.PagViewModel.HasNext2 == true)
                 {
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
+                    <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.NextPage2 })"> @Model.PagViewModel.NextPage2 </a></li>
                 }
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
-                <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Next })"> Next </a></li>
+                <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.Last })"> Last </a></li>
             }
         </ul>
     </div>
     <div class="col-sm-2">
         <ul class="pagination">
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues", "Home", new { id = Model.PagViewModel.CurrentPage })"> @Model.PagViewModel.CurrentPage </a></li>
         </ul>
     </div>
     <div class="col-sm-3">
         <ul class="pagination">
-            <li class="page-item active"><a class="page-link" href="@Url.Action("StDevZero","Home", new { id = 1 })">St dev = 0</a></li>
-            <li class="page-item"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("StDevZero","Home", new {id = 1})">St dev = 0</a></li>
+            <li class="page-item active"><a class="page-link" href="@Url.Action("MissingValues","Home", new { id = 1 })">50% or more missing</a></li>
         </ul>
     </div>
+
 </div>
 <script type="text/javascript">
     $(function () {

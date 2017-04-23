@@ -9,6 +9,5 @@ namespace ASPNET_MVC_Samples.ViewModels
     public class PointExtensionViewModel
     {
         public List<DataPoint> Points { get; set; }
-        public double StDev { get; set; }
     }
 }
